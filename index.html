@@ -1,1 +1,36 @@
-<h1>welcome</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>请稍等...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      text-align: center;
+      padding-top: 100px;
+    }
+  </style>
+  <script>
+    // 目标跳转链接
+    var target = "https://qrdemo.2020818.xyz/rfft";
+
+    // 判断是否在微信中打开
+    var ua = navigator.userAgent.toLowerCase();
+    var isWeChat = ua.indexOf("micromessenger") !== -1;
+
+    if (isWeChat) {
+      // 如果是微信浏览器，立即跳转
+      window.location.href = target;
+    }
+  </script>
+</head>
+<body>
+  <noscript>请开启 JavaScript 以继续。</noscript>
+  <div id="msg">
+    <p>请使用微信打开本页面以跳转</p>
+  </div>
+</body>
+</html>
