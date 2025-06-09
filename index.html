@@ -12,6 +12,19 @@
       background-color: #f9f9f9;
       color: #333;
     }
+    .spinner {
+      margin: 30px auto 20px;
+      width: 50px;
+      height: 50px;
+      border: 6px solid #ccc;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     .loading {
       font-size: 18px;
       margin-top: 20px;
@@ -25,6 +38,7 @@
 </head>
 <body>
   <h1>请稍候，正在跳转中...</h1>
+  <div class="spinner"></div>
   <div class="loading">页面正在加载，如未自动跳转，请点击下面的链接</div>
   <p><a href="https://static3.laiyifen.com/files/scm-portal-franchisee/music/franchisee/info/researchReport/6d1e9368f1b443dabe66f25f3321ace4.html?loginName=mma658">👉 手动跳转到目标页面</a></p>
   <div class="tips">提示：请确保网络畅通，或复制链接在浏览器打开。</div>
