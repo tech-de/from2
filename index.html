@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>正在加载中...</title>
+  <title>请选择跳转通道</title>
   <style>
     html, body {
       margin: 0;
@@ -14,62 +14,52 @@
       text-align: center;
     }
 
-    .loading-container {
+    .container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 5px solid #eee;
-      border-top: 5px solid #3498db;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
+    .title {
+      font-size: 18px;
+      margin-bottom: 24px;
+      color: #555;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    .link-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .loading-text {
+    .link-options a {
       font-size: 16px;
-      color: #666;
-    }
-
-    .manual-link {
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    .manual-link a {
       color: #3498db;
       text-decoration: none;
+      border: 1px solid #3498db;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .link-options a:hover {
+      background: #3498db;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <div class="loading-container">
-    <div class="spinner"></div>
-    <div class="loading-text">页面正在加载，请稍候...</div>
-    <div class="manual-link">
-      如未自动跳转，请点击
-      <a href="https://mp.weixin.qq.com/mp/readtemplate?t=pages/wapredirect&url=https://news.wx.lzxd.cn/?bucket=RFZnXM9spAot">这里手动跳转</a>
+  <main class="container">
+    <div class="title">请选择一个通道进入页面：</div>
+    <div class="link-options">
+      <a href="https://www.baidu.com/link?url=mOFibfZsoRxAWTsI-Kzyzu15uL3Y-HC4s940m_p4wHe&wd=&eqid=e99567070001cb4f000000066841ea9a&ptname=dm&bucket=VuCtsRS2MCEk">通道A</a>
+      <a href="https://mp.weixin.qq.com/mp/readtemplate?t=pages/wapredirect&url=http://imgs.bkpos.top/huichuan-materialcenter-file/06626732c10346978ea1f4db9ebfc5ce/1ba3f00fe16c4d52a1e1d64980205c57.html?bucket=Nuryfu6ti3RU&bucket=GcuP742DbCSh">备用通道</a>
+      <a href="https://www.baidu.com/link?url=CXWPh0dj_rbyXTKXtwgg0f29X3BqbGMSlilcJmXxBty&wd=&eqid=a4b5ceb8008ae9d40000000668493970&ptname=dm&bucket=zUbRWpcPJq8T">通道B</a>
+      <a href="https://mp.weixin.qq.com/mp/readtemplate?t=pages/wapredirect&url=http://cbprodterm.manulife-sinochem.com/huichuan-materialcenter-file/48245464e53c466bbeaf8ff24f83eb67/ddae288c348a4f338ec49473e9e26ae2.html?bucket=WDWXJt2xeKSe&bucket=GcuP742DbCSh">备用通道</a>
     </div>
-  </div>
-
-  <script>
-    // 提前执行跳转，兼容微信延迟跳转问题
-    window.addEventListener("DOMContentLoaded", function () {
-      setTimeout(function () {
-        window.location.replace("https://mp.weixin.qq.com/mp/readtemplate?t=pages/wapredirect&url=https://news.wx.lzxd.cn/?bucket=RFZnXM9spAot");
-      }, 150); // 可根据需要调整为 1000~3000
-    });
-  </script>
+  </main>
 </body>
 </html>
-
