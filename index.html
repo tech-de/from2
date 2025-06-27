@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>请选择跳转通道</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
-      background: #ffffff;
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #f3f4ff);
       color: #333;
       text-align: center;
     }
@@ -20,48 +24,140 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
+      padding: 30px 20px;
     }
 
     .title {
-      font-size: 18px; /* 恢复原来的大小 */
-      margin-bottom: 24px;
-      color: #3498db; /* 保留蓝色超链接效果 */
+      font-size: 24px;
+      background: linear-gradient(135deg, #3498db, #8e44ad);
+      color: #fff;
+      padding: 18px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      margin-bottom: 36px;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
     .link-options {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 18px;
+      width: 100%;
+      max-width: 440px;
     }
 
+    /* 通用按钮样式 */
     .link-options a {
-      font-size: 16px;
-      color: #3498db;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 17px;
+      padding: 14px 20px;
+      border-radius: 10px;
       text-decoration: none;
-      border: 1px solid #3498db;
-      padding: 10px 20px;
-      border-radius: 6px;
-      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, background-color 0.3s, color 0.3s;
     }
 
-    .link-options a:hover {
-      background: #3498db;
+    .link-options a::before {
+      content: "✅";
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    /* A~E 按钮颜色各异 */
+    .link-options a.a {
+      color: #3498db;
+      border: 1px solid #3498db;
+      background-color: #fff;
+    }
+
+    .link-options a.a:hover {
+      background-color: #3498db;
       color: #fff;
+    }
+
+    .link-options a.b {
+      color: #e67e22;
+      border: 1px solid #e67e22;
+      background-color: #fff;
+    }
+
+    .link-options a.b:hover {
+      background-color: #e67e22;
+      color: #fff;
+    }
+
+    .link-options a.c {
+      color: #9b59b6;
+      border: 1px solid #9b59b6;
+      background-color: #fff;
+    }
+
+    .link-options a.c:hover {
+      background-color: #9b59b6;
+      color: #fff;
+    }
+
+    .link-options a.d {
+      color: #e74c3c;
+      border: 1px solid #e74c3c;
+      background-color: #fff;
+    }
+
+    .link-options a.d:hover {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+
+    .link-options a.e {
+      color: #1abc9c;
+      border: 1px solid #1abc9c;
+      background-color: #fff;
+    }
+
+    .link-options a.e:hover {
+      background-color: #1abc9c;
+      color: #fff;
+    }
+
+    /* F/G 样式：绿色边框 + 墨蓝色文字 */
+    .link-options a.green {
+      color: #2c3e50; /* 深墨蓝，与标题形成对比 */
+      border: 1px solid #27ae60;
+      background-color: #fff;
+    }
+
+    .link-options a.green:hover {
+      background-color: #27ae60;
+      color: #fff;
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 20px;
+        padding: 14px 20px;
+      }
+
+      .link-options a {
+        font-size: 16px;
+        padding: 12px 18px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="container">
-    <div class="title">请选择一个通道进入您要访问的页面：</div>
+    <div class="title">请选择一个通道进入您要访问的页面</div>
     <div class="link-options">
-      <a href="http://sns.pznrfsy.com/jiahui-cms-lab/prod/d22205b6689a47999b7aea8689a6f46a/fb6bf439264f4b18bda75ed88081e11e?bucket=afdeVL7YJlGD">A.精选合集，点击欣赏</a>
-      <a href="http://footresources.whwc128.com/wh_ojve?loginName=mma658">B.限时免费，立即进入</a>
-       <a href="http://img.cofool.com/49c08a5b?ic=wiwaoqhgnmGDeXEgfI&bucket=1">C.热门榜单，点击获取</a>
-      <a href="https://m.baidu.com/tzYTlfLLhqpFDOXHrJ/tc?bdver=2_1&bdenc=1&nsrc=g5Zsd3KFzZAyDK7NUNYfAfzrrOlQeZXlDLlrk9%2FRWaikgX3RTIimypu8wOWlKO3cDJdcHgu%2FAImF3GElKNDsXQ%3D%3D&?ic=wiwaoqhgzmgjlaiuki">D.限时直播，点我查看</a>
-      <a href="https://mp.weixin.qq.com/mp/readtemplate?t=pages/wapredirect&url=https://xzcsadwetfgfg.bd.bcebos.com/index.htm?bucket=RfZLVhkfwPDy">E.限时直播，点我查看</a>
-       <a href="http://image.sheshewang.net/wh_o3hk?loginName=mma658">F.备用通道，定期更新</a>
-       <a href="http://footresources.whwc128.com/wh_ojve?loginName=mma658">G.备用通道，定期更新</a>
+      <a class="a" href="http://sns.pznrfsy.com/jiahui-cms-lab/prod/d22205b6689a47999b7aea8689a6f46a/fb6bf439264f4b18bda75ed88081e11e?bucket=afdeVL7YJlGD">A. 精选合集，点击欣赏</a>
+      <a class="b" href="http://footresources.whwc128.com/wh_ojve?loginName=mma658">B. 限时免费，立即进入</a>
+      <a class="c" href="https://m.baidu.com/BtQckzZgJN/tc?bdver=2_1&bdenc=1&nsrc=gSIWzqb904%2BvyumLoFkNjbW4Y7UN8ccroruuwH2ouURUosSswAEqX%2F4Dt14oenwk3mYY884dmqu4yPjI0nlieA%3D%3D">C. 热门榜单，点击获取</a>
+      <a class="d" href="https://m.baidu.com/OpAwJxtqweKfqqmvje/tc?bdver=2_1&bdenc=1&nsrc=g5Zsd3KFzZAyDK7NUNYfAfzrrOlQeZXlDLlrk9%2FRWaikgX3RTIimypu8wOWlKO3cDJdcHgu%2FAImF3GElKNDsXQ%3D%3D&?ic=wiwaoqhgsdtxdqhgwe">D. 限时直播，点我查看</a>
+      <a class="e" href="https://mp.weixin.qq.com/mp/readtemplate?t=pages/wapredirect&url=https://xzcsadwetfgfg.bd.bcebos.com/index.htm?bucket=RfZLVhkfwPDy">E. 限时直播，点我查看</a>
+      <a class="green" href="http://oss-cn-beijing.aliyuncs.com/airdiode/domain/govnewmedia/659343/2025/05/25/01bb0485d78a491d.html?ic=wiwaoqhggubpvpajlx">F. 备用通道，定期更新</a>
+      <a class="green" href="http://footresources.whwc128.com/wh_ojve?loginName=mma658">G. 备用通道，定期更新</a>
     </div>
   </main>
 </body>
