@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正在跳转...</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #f3f4ff);
+      color: #3498db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #3498db;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <p>正在跳转，请稍候...</p>
+  <div class="spinner"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const linkNumber = params.get('link');
+
+    // 优化1：添加时间戳 timestamp，防止微信缓存旧的 json 文件
+    const timestamp = new Date().getTime();
+
+    fetch('links.json?t=' + timestamp)
+      .then(res => res.json())
+      .then(data => {
+        const encodedLink = data['link' + linkNumber];
+        
+        if (encodedLink) {
+          try {
+            // 优化2：Base64 解码 (atob 函数)
+            // 如果你的 json 还没改 base64，这一步会报错或者跳错，请务必同步修改 json
+            const finalUrl = atob(encodedLink);
+
+            setTimeout(() => {
+              // 优化3：使用 replace 代替 href
+              // 这样用户在目标页面按“返回”时，不会又回到这个跳转页死循环
+              window.location.replace(finalUrl);
+            }, 800);
+          } catch (e) {
+            console.error("解码失败", e);
+            document.querySelector('p').textContent = "链接解析错误";
+          }
+        } else {
+          document.querySelector('p').textContent = "链接不存在或配置错误";
+          document.querySelector('p').style.color = "red";
+          document.querySelector('.spinner').style.display = "none";
+        }
+      })
+      .catch(err => {
+        document.querySelector('p').textContent = "加载配置失败";
+        document.querySelector('p').style.color = "red";
+        document.querySelector('.spinner').style.display = "none";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
